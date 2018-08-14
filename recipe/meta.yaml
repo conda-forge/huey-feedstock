@@ -1,6 +1,6 @@
 {% set name = "huey" %}
-{% set version = "1.10.1" %}
-{% set sha256 = "ac3bf087de26b81636164c4593b0b33f862b7977351d46772a77d33181b0c8cb" %}
+{% set version = "1.10.2" %}
+{% set sha256 = "d6946422617a1987b586c82a5d94db568bd9f89aa5de0cc0fb9a00af64696e09" %}
 
 package:
   name: {{ name|lower }}
