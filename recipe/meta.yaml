@@ -1,20 +1,17 @@
-{% set name = "huey" %}
-{% set version = "1.10.5" %}
-{% set sha256 = "86ab553d428b6b849b6ad2722172a7a1b5a221ecc0e17b8a929fbc1e16b7f584" %}
+{% set version = "2.0.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: huey
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/coleifer/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/coleifer/huey/archive/{{ version }}.tar.gz
+  sha256: 19f54bf937b918769d2b7563eb87afdf15aebce4b0eefb4837f5e31dbefa84be
 
 build:
   noarch: python
   number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - huey_consumer = huey.bin.huey_consumer:consumer_main
 
@@ -24,7 +21,6 @@ requirements:
     - pip
   run:
     - python
-    - peewee
     - redis-py
 
 test:
