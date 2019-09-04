@@ -1,4 +1,4 @@
-{% set version = "2.1.0" %}
+{% set version = "2.1.2" %}
 
 package:
   name: huey
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/coleifer/huey/archive/{{ version }}.tar.gz
-  sha256: a7404576afaed162a994c8ac5aa326b39492ac5ca3834502b756bd6534072124
+  sha256: bc601c609582ad84fa245c5d1aeb67f1f2770ea623e81eaebcbb9922dee840f7
 
 build:
   noarch: python
