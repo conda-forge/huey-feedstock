@@ -10,20 +10,22 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - huey_consumer = huey.bin.huey_consumer:consumer_main
 
 requirements:
-  build:
-    - python
+  host:
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - redis-py
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - huey
 
