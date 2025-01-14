@@ -1,44 +1,49 @@
-{% set version = "2.1.3" %}
+{% set name = "huey" %}
+{% set version = "2.5.2" %}
 
 package:
-  name: huey
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/coleifer/huey/archive/{{ version }}.tar.gz
-  sha256: 139637fe3eca75732329f59efb0e30fbc3f70e0ed6237ca3dc045d437583c269
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/huey-{{ version }}.tar.gz
+  sha256: df33db474c05414ed40ee2110e9df692369871734da22d74ffb035a4bd74047f
 
 build:
   noarch: python
-  number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   entry_points:
     - huey_consumer = huey.bin.huey_consumer:consumer_main
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
 
 requirements:
-  build:
-    - python
+  host:
+    - python {{ python_min }}
+    - setuptools
     - pip
   run:
-    - python
-    - redis-py
+    - python >={{ python_min }}
+  run_constrained:
+    - redis-py >=3.0.0
 
 test:
   imports:
     - huey
-
   commands:
+    - pip check
     - huey_consumer --help
+  requires:
+    - pip
+    - python {{ python_min }}
 
 about:
-  home: https://github.com/coleifer/huey
+  home: https://github.com/coleifer/huey/
+  summary: huey, a little task queue
   license: MIT
-  license_family: MIT
   license_file: LICENSE
-  summary: A little task queue for python
-  doc_url: http://huey.readthedocs.org/
-  dev_url: https://github.com/coleifer/huey
+  doc_url: https://huey.readthedocs.io
 
 extra:
   recipe-maintainers:
     - kwilcox
+    - synapticarbors
