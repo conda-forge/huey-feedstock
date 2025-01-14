@@ -37,10 +37,11 @@ test:
     - python {{ python_min }}
 
 about:
-  home: http://github.com/coleifer/huey/
+  home: https://github.com/coleifer/huey/
   summary: huey, a little task queue
   license: MIT
   license_file: LICENSE
+  doc_url: https://huey.readthedocs.io
 
 extra:
   recipe-maintainers:
