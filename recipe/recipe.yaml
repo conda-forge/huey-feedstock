@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: huey
-  version: "2.6.0"
+  version: "3.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/huey-${{ version }}.tar.gz
-  sha256: 8d11f8688999d65266af1425b831f6e3773e99415027177b8734b0ffd5e251f6
+  sha256: 0cfc83617b90132b0d375a3a3726aa7263cd461e7ae12af79b3a94e2630afaf5
 
 build:
   number: 0
