@@ -29,6 +29,8 @@ requirements:
     - python >=${{ python_min }}
   run_constraints:
     - redis-py >=3.0.0
+    - psycopg >=3.2
+    - cysqlite >=0.3.5
 
 tests:
   - python:
