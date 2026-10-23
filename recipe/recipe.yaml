@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "3.4.0"
+  version: "3.5.0"
 
 package:
   name: huey
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/h/huey/huey-${{ version }}.tar.gz
-  sha256: ac9b02e741f13da4092ea19bcaafc73669e97d3153914d2fed2868df144f6dfa
+  sha256: e40177e871ff68438f953bfc1a8b17f594625a1e6d8dd680144f03638d3173dc
 
 build:
   number: 0
@@ -36,7 +36,7 @@ tests:
       imports:
         - huey
       pip_check: true
-      python_version: 
+      python_version:
         - ${{ python_min }}.*
         - "*"
   - requirements:
